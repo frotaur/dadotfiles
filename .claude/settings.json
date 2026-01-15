@@ -1,0 +1,4 @@
+{
+  "apiKeyHelper": "echo $ANTHROPIC_API_KEY",
+  "model": "opus"
+}
