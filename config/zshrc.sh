@@ -48,26 +48,12 @@ if [ -d "$HOME/.pyenv" ]; then
   eval "$(pyenv init -)"
 fi
 
-# if [ -d "$HOME/.local/bin/micromamba" ]; then
-#   export MAMBA_EXE="$HOME/.local/bin/micromamba"
-#   export MAMBA_ROOT_PREFIX="$HOME/micromamba"
-#   __mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
-#   if [ $? -eq 0 ]; then
-#       eval "$__mamba_setup"
-#   else
-#       alias micromamba="$MAMBA_EXE"  # Fallback on help from mamba activate
-#   fi
-#   unset __mamba_setup
-# fi
-
-# FNM_PATH="$HOME/.local/share/fnm"
-# if [ -d "$FNM_PATH" ]; then
-#   export PATH="$FNM_PATH:$PATH"
-#   eval "`fnm env`"
-# fi
 
 if [ -z "$SSH_AUTH_SOCK" ]; then
     eval "$(ssh-agent -s)" > /dev/null
 fi
 
 eval "$(~/.linuxbrew/bin/brew shellenv zsh)"
+
+# direnv hook for automatic .env loading
+eval "$(direnv hook zsh)"

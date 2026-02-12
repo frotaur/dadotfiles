@@ -39,6 +39,7 @@ if [ $machine == "Linux" ]; then
     curl -LsSf https://astral.sh/uv/install.sh | sh
 
     sudo apt-get install -y ripgrep
+    sudo apt-get install -y direnv
 
     if [ -x ~/.linuxbrew/bin/brew ]; then
         echo "Homebrew already installed, skipping..."
