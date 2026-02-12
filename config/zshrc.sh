@@ -57,3 +57,4 @@ eval "$(~/.linuxbrew/bin/brew shellenv zsh)"
 
 # direnv hook for automatic .env loading
 eval "$(direnv hook zsh)"
+eval "$(ask-sh --init)"
