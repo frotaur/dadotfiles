@@ -59,9 +59,9 @@ if [ $machine == "Linux" ]; then
     cargo install code2prompt
     brew install peco
 
-    sudo apt-get install -y nodejs
-    sudo apt-get install -y npm
-
+    # sudo apt-get install -y nodejs For now cluster already has node and npm, so no need
+    # npm comes bundled with nodejs from nodesource, no separate installation needed
+fi
 # Setting up oh my zsh and oh my zsh plugins
 ZSH=~/.oh-my-zsh
 ZSH_CUSTOM=$ZSH/custom
@@ -112,5 +112,3 @@ git config --global user.name "$name"
 
 echo "Installing claude cli"
 curl -fsSL https://claude.ai/install.sh | bash
-
-fi  # Close the if statement from line 33
