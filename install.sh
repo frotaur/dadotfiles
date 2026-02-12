@@ -10,11 +10,14 @@ USAGE=$(cat <<-END
 END
 )
 
-
+force=false
 while (( "$#" )); do
     case "$1" in
         -h|--help)
             echo "$USAGE" && exit 1 ;;
+        --f|--force)
+            force=true
+            shift ;;
         --) # end argument parsing
             shift && break ;;
         -*|--*=) # unsupported flags
