@@ -111,3 +111,5 @@ git config --global user.name "$name"
 
 echo "Installing claude cli"
 curl -fsSL https://claude.ai/install.sh | bash
+
+fi  # Close the if statement from line 33
