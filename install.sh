@@ -10,18 +10,20 @@ USAGE=$(cat <<-END
 END
 )
 
-force=false
+force="false"
 while (( "$#" )); do
     case "$1" in
         -h|--help)
             echo "$USAGE" && exit 1 ;;
         --f|--force)
-            force=true
+            force="true"
             shift ;;
         --) # end argument parsing
             shift && break ;;
         -*|--*=) # unsupported flags
             echo "Error: Unsupported flag $1" >&2 && exit 1 ;;
+        *) # positional arguments - stop parsing flags
+            break ;;
     esac
 done
 
@@ -38,7 +40,7 @@ if [ $machine == "Linux" ]; then
     sudo apt-get update -y
     sudo apt-get install -y zsh
     sudo apt-get install -y tmux
-    sudo apt-get install -y less nano htop ncdu nvtop lsof rsync jq
+    sudo apt-get install -y less nano htop ncdu nvtop lsof rsync jq pkg-config
     curl -LsSf https://astral.sh/uv/install.sh | sh
 
     sudo apt-get install -y ripgrep
@@ -68,8 +70,8 @@ fi
 # Setting up oh my zsh and oh my zsh plugins
 ZSH=~/.oh-my-zsh
 ZSH_CUSTOM=$ZSH/custom
-if [ "$force" = "false" ]; then
-    echo "Skipping download of oh-my-zsh and related plugins, pass --force to force redeownload"
+if [ -d "$ZSH" ] && [ "$force" = "false" ]; then
+    echo "oh-my-zsh already installed. Skipping download. Pass --force to reinstall."
 else
     echo " --------- INSTALLING DEPENDENCIES ⏳ ----------- "
     rm -rf $ZSH
