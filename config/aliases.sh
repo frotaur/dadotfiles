@@ -5,6 +5,8 @@
 alias cl="clear"
 alias mkdir='mkdir -p'
 
+alias lowclaude='export ANTHROPIC_API_KEY=$(cat ~/.anthropic_low_key)'
+alias highclaude='export ANTHROPIC_API_KEY=$(cat ~/.anthropic_key)'
 # alias rl="readlink -f"
 alias fd='find . -type d -name'
 alias ff='find . -type f -name'
@@ -37,7 +39,7 @@ alias .2='cd ../../'
 alias .3='cd ../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
-
+alias cdwp='cd /workspace-vast/vassilisp/'
 
 #-------------------------------------------------------------
 # git
@@ -83,50 +85,9 @@ alias lu='ls -ltur'       # sort by and show access time, most recent last
 alias lt='ls -ltr'        # sort by date, most recent last
 alias lm='ls -al |more'   # pipe through 'more'
 alias lr='ls -lR'         # recursive ls
-#-------------------------------------------------------------
-# chmod
-#-------------------------------------------------------------
-
-# chw () {
-#   if [ "$#" -eq 1 ]; then
-#     chmod a+w $1
-#   else
-#     echo "Usage: chw <dir>" >&2
-#   fi
-# }
-# chx () {
-#   if [ "$#" -eq 1 ]; then
-#     chmod a+x $1
-#   else
-#     echo "Usage: chx <dir>" >&2
-#   fi
-# }
 
 #-------------------------------------------------------------
 # env
 #-------------------------------------------------------------
 alias sv="source .venv/bin/activate"
-alias penv="source /workspace-vast/vassilisp/envs/.penv/bin/activate"
-
-# -------------------------------------------------------------------
-# Slurm
-# -------------------------------------------------------------------
-alias q='squeue -o "%.18i %.9P %.8j %.8u %.2t %.10M %.6D %N %.10b"'
-alias qw='watch squeue -o "%.18i %.9P %.8j %.8u %.2t %.10M %.6D %N %.10b"'
-alias qq='squeue -u $(whoami) -o "%.18i %.9P %.8j %.8u %.2t %.10M %.6D %N %.10b"'
-alias qtop='scontrol top'
-alias qdel='scancel'
-alias qnode='sinfo -Ne --Format=NodeHost,CPUsState,Gres,GresUsed'
-alias qinfo='sinfo'
-alias qhost='scontrol show nodes'
-# Submit a quick GPU test job
-alias qtest='sbatch --gres=gpu:1 --wrap="hostname; nvidia-smi"'
-alias qlogin='srun --gres=gpu:1 --pty $SHELL'
-# Cancel all your queued jobs
-alias qclear='scancel -u $(whoami)'
-alias newjupy='~/dotfiles/runpod/useful_scripts/start_dev_jupyter.sh'
-# Functions to submit quick jobs with varying GPUs
-# Usage: qrun 4 script.sh → submits 'script.sh' with 4 GPUs
-qrun() {
-  sbatch --gres=gpu:"$1" "$2"
-}
+alias penv="source ~/.penv/bin/activate"
