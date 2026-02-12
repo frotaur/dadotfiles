@@ -59,8 +59,8 @@ if [ $machine == "Linux" ]; then
     cargo install code2prompt
     brew install peco
 
+    sudo apt-get install -y nodejs
     sudo apt-get install -y npm
-        # yes | npm i -g shell-ask # We have ask anyway at the end, which can also write to the terminal
 
 # Setting up oh my zsh and oh my zsh plugins
 ZSH=~/.oh-my-zsh
