@@ -103,7 +103,7 @@ fi
 
 echo " --------- INSTALLING EXTRAS ⏳ ----------- "
 if command -v cargo &> /dev/null; then
-    yes '' | NO_ASK_OPENAI_API_KEY=1 zsh -c "$(curl -fsSL https://raw.githubusercontent.com/hmirin/ask.sh/main/install.sh)"
+    ( yes '' || true ) | NO_ASK_OPENAI_API_KEY=1 zsh -c "$(curl -fsSL https://raw.githubusercontent.com/hmirin/ask.sh/main/install.sh)"
 fi
 
 echo "Setting up git"
