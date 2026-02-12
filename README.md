@@ -1,16 +1,15 @@
 # dotfiles
-ZSH, Tmux, Vim and ssh setup on both local/remote machines.
+ZSH, Tmux and ssh setup on both local/remote machines.
 
 ## Installation
 
 ### Step 1
-Install dependencies (e.g. oh-my-zsh and related plugins), you can specify options to install specific programs: tmux, zsh, note that your dev-vm will already have tmux and zsh installed so you don't need to provide any options in this case, but you may need to provide these if you are installing locally. 
+Install dependencies (e.g. oh-my-zsh and related plugins)
 
-Installation on a mac machine requires homebrew so install this [from here](https://brew.sh/) first if you haven't already.
 
 ```bash
 # Install dependencies (remove tmux or zsh if you don't need to install them)
-./install.sh --tmux --zsh
+./install.sh
 ```
 
 ### Step 2
@@ -18,10 +17,6 @@ Deploy (e.g. source aliases for .zshrc, apply oh-my-zsh settings etc..)
 ```bash
 # Remote linux machine
 ./deploy.sh  
-# (optional) Deploy with extra aliases (useful for remote machines where you want specific aliases)
-./deploy.sh --aliases=speechmatics
-# (optional) Include simple vimrc 
-./deploy.sh --vim
 ```
 
 ### Step 3
@@ -47,31 +42,3 @@ Apply changes to ~/.zshrc?
 * Any software or command line tools you need, add them to the [install.sh](./install.sh) script. Try adding a new command line tool to the install script.
 * Any new plugins or environment setup, add them to the [config/zshrc.sh](./config/zshrc.sh) script.
 * Any aliases you need, add them to the [config/aliases.sh](./config/aliases.sh) script. Try adding your own alias to the bottom of the file. For example, try setting `cd1` to your most used git repo so you can just type `cd1` to get to it.
-* Any setup you do in a new RunPod, add it to [runpod/runpod_setup.sh](./runpod/runpod_setup.sh).
-
-## Docker image for runpod
-
-To build the docker image for runpod, you can run the following command:
-
-```bash
-export DOCKER_DEFAULT_PLATFORM=linux/amd64
-docker build -f runpod/johnh_dev.Dockerfile -t jplhughes1/runpod-dev .
-
-# Build with buildx
-docker buildx create --name mybuilder --use
-docker buildx build --platform linux/amd64 -f runpod/johnh_dev.Dockerfile -t jplhughes1/runpod-dev . --push
-
-```
-
-To test it
-
-```bash
-docker run -it -v $PWD/runpod/entrypoint.sh:/dotfiles/runpod/entrypoint.sh -e USE_ZSH=true jplhughes1/runpod-dev /bin/zsh
-```
-
-To push it to docker hub
-
-```bash
-docker push jplhughes1/runpod-dev
-```
-

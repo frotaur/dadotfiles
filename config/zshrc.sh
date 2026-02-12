@@ -1,6 +1,6 @@
 CONFIG_DIR=$(dirname $(realpath ${(%):-%x}))
 DOT_DIR=$CONFIG_DIR/..
-
+export UV_CACHE_DIR=/workspace-vast/vassilisp/.cache/uv
 if [ ! -f "$HOME/.anthropic_key" ]; then
   echo "Warning: $HOME/.anthropic_key file not found, please create and put your Anthropic API key in it to use related features."
 fi
@@ -31,8 +31,6 @@ source $ZSH/oh-my-zsh.sh
 source $CONFIG_DIR/aliases.sh
 source $CONFIG_DIR/p10k.zsh
 source $CONFIG_DIR/extras.sh
-source $CONFIG_DIR/key_bindings.sh
-add_to_path "${DOT_DIR}/custom_bins"
 
 # for uv
 if [ -d "$HOME/.local/bin" ]; then

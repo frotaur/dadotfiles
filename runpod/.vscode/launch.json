@@ -1,0 +1,22 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Debug in srun (Auto)",
+            "type": "debugpy",
+            "request": "attach",
+            "connect": {
+                "host": "node-14",
+                "port": 4322
+            },
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}",
+                    "remoteRoot": "${workspaceFolder}"
+                }
+            ],
+            "justMyCode": true,
+            "preLaunchTask": "Start Debug in srun Terminal"
+        }
+    ]
+}

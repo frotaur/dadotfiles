@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run Python File (in srun)",
+            "type": "shell",
+            "command": "tmux send-keys -t pydev 'python ${file}' Enter",
+            "presentation": {
+                "reveal": "never",
+                "panel": "shared",
+                "close": true
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Start Debug in srun Terminal",
+            "type": "shell",
+            "command": "${workspaceFolder}/.vscode/start_debug_and_wait.sh ${file}",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "close": true,
+                "showReuseMessage": false
+            }
+        }
+    ]
+}
