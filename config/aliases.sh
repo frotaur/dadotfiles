@@ -5,8 +5,6 @@
 alias cl="clear"
 alias mkdir='mkdir -p'
 
-alias lowclaude='export ANTHROPIC_API_KEY=$(cat ~/.anthropic_low_key)'
-alias highclaude='export ANTHROPIC_API_KEY=$(cat ~/.anthropic_key)'
 # alias rl="readlink -f"
 alias fd='find . -type d -name'
 alias ff='find . -type f -name'
@@ -39,7 +37,6 @@ alias .2='cd ../../'
 alias .3='cd ../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
-alias cdwp='cd /workspace-vast/vassilisp/'
 
 #-------------------------------------------------------------
 # git

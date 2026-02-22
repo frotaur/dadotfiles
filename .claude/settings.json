@@ -1,9 +1,8 @@
 {
-  "apiKeyHelper": "echo $ANTHROPIC_API_KEY",
   "permissions": {
     "allow": [
       "Bash(grep:*)",
-      "Read(//workspace-vast/vassilisp/envs/**)",
+      "Read(**)",
       "Bash(ls:*)",
       "Bash(mkdir:*)",
       "Bash(go:*)",

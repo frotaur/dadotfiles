@@ -2,8 +2,8 @@ I like colorful terminals, so please use colors when you can!
 
 In general, I always use uv, so never use things like pip and stuff like that!
 Usually, in the projects there will be a uv pyproject.toml, so you can just use uv run to run scripts. 
-Additionally, there will often be a .env closeby, which usually has the necessary env-vars. I use direnv,
-so you can use that to load them.
+Additionally, there will often be a .env or .envrc closeby, which usually has the necessary env-vars. I use direnv.
+
 In rare cases where a pyproject.toml is not available (e.g. I do a quick script), you can fall back to the 'catch-all' venv which is located at
 ~/.penv. You can also double check its location by typing 'type penv'. This is the venv I use when I want to do
 some quick stuff without bothering to setup uv.

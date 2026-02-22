@@ -1,6 +1,6 @@
 CONFIG_DIR=$(dirname $(realpath ${(%):-%x}))
 DOT_DIR=$CONFIG_DIR/..
-export UV_CACHE_DIR=/workspace-vast/vassilisp/.cache/uv
+
 if [ ! -f "$HOME/.anthropic_key" ]; then
   echo "Warning: $HOME/.anthropic_key file not found, please create and put your Anthropic API key in it to use related features."
 fi
@@ -26,8 +26,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 export TERM="xterm-256color"
-export HF_HOME="/workspace-vast/pretrained_ckpts"
-export HF_TOKEN_PATH="/workspace-vast/vassilisp/misc/hf_token"
+
 ZSH_DISABLE_COMPFIX=true
 ZSH_THEME="powerlevel10k/powerlevel10k"
 ZSH=$HOME/.oh-my-zsh
