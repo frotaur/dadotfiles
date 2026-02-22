@@ -40,7 +40,7 @@ if [ $machine == "Linux" ]; then
     sudo apt-get update -y
     sudo apt-get install -y zsh
     sudo apt-get install -y tmux
-    sudo apt-get install -y less nano htop ncdu nvtop lsof rsync jq pkg-config
+    sudo apt-get install -y less nano htop ncdu nvtop lsof rsync jq pkg-config build-essential
     curl -LsSf https://astral.sh/uv/install.sh | sh
 
     sudo apt-get install -y ripgrep
